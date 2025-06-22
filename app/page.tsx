@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'motion/react'
 import { ArrowUpRightIcon, XIcon } from 'lucide-react'
+import { useState } from 'react'
 import { Magnetic } from '@/components/ui/magnetic'
 import {
   MorphingDialog,
@@ -11,6 +12,7 @@ import {
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
 import {
+  AchievementPreview,
   EducationPreview,
   JobExperienceDropdown,
 } from '@/components/ui/work-exp'
@@ -20,8 +22,9 @@ import {
   EMAIL,
   SOCIAL_LINKS,
   EDUCATION,
+  ACHIEVEMENTS,
 } from './data'
-
+import { ProjectPreview } from '@/components/ui/projects'
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
@@ -126,6 +129,9 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
+  const [showAllProjects, setShowAllProjects] = useState(false)
+  const displayedProjects = showAllProjects ? PROJECTS : PROJECTS.slice(0, 4)
+
   return (
     <motion.main
       className="space-y-24"
@@ -139,19 +145,22 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Versatile full stack engineer currently pursuing a Master's in AI
-            and ML, with hands-on experience in fast-paced startup environments.
-            I'm passionate about building scalable web applications and diving
-            deep into the world of LLM agents and intelligent systems.
+            I am Susanta Baidya, an AI/ML professional currently working as an
+            AI/ML Intern at DeepMatrix, Bengaluru. I hold an MSc in Artificial
+            Intelligence and Machine Learning from IIIT Lucknow (CGPA: 8.20/10)
+            and a BSc in Statistics.
             <br />
             <br />
-            I thrive in dynamic, collaborative teams and love solving complex
-            problems across the stack — from frontend finesse to backend logic.
+            With hands-on experience spanning Computer Vision, Generative AI,
+            and Agentic AI through industry internships, I am passionate about
+            developing cutting-edge AI solutions including LLM-powered
+            applications, autonomous AI agents, and production-ready ML systems.
             <br />
             <br />
-            When I'm not immersed in code, you'll catch me racing in Forza,
-            bingeing anime, or staying active with badminton, cardio, and
-            swimming. Work hard, play harder. 🙌
+            My work ranges from YOLO-based object detection systems to
+            sophisticated RAG implementations and natural language to
+            command-line interfaces. I have successfully contributed to systems
+            that improved inference speed by 35% and detection accuracy by 28%.
           </p>
         </div>
       </motion.section>
@@ -162,46 +171,23 @@ export default function Personal() {
       >
         <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <article key={project.name + project.id} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
-              </div>
-              <div className="rounded-lg px-2 pt-2 pb-4">
-                <header className="my-2 flex flex-row items-center justify-between">
-                  <Link
-                    href={project.blog}
-                    className="text-base font-medium text-zinc-900 transition-all duration-200 hover:underline dark:text-zinc-50"
-                    aria-label={`Read more about ${project.name}`}
-                  >
-                    {project.name}
-                  </Link>
-                  <a
-                    className="font-base group relative inline-flex items-center gap-1 text-sm font-[500] text-zinc-500 transition-colors duration-200 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-100"
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Visit ${project.name} project`}
-                  >
-                    Link{' '}
-                    <ArrowUpRightIcon className="h-4 w-4 text-zinc-500 transition-colors duration-200 group-hover:animate-bounce group-hover:text-zinc-900 dark:text-zinc-500 dark:group-hover:text-zinc-100" />
-                  </a>
-                </header>
-
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-                <Link
-                  href={project.blog}
-                  className="font-base relative inline-flex items-center gap-1 text-xs font-[500] text-zinc-500 transition-colors duration-200 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-100"
-                  aria-label={`Read more about ${project.name}`}
-                >
-                  Read more...
-                </Link>
-              </div>
-            </article>
+          {displayedProjects.map((project) => (
+            <ProjectPreview key={project.name + project.id} project={project} />
           ))}
         </div>
+        {PROJECTS.length > 4 && (
+          <div className="mt-8 flex justify-center">
+            <button
+              onClick={() => setShowAllProjects(!showAllProjects)}
+              className="group relative inline-flex items-center gap-2 rounded-full bg-zinc-100 px-4 py-2 text-sm font-medium text-zinc-900 transition-colors duration-200 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+            >
+              {showAllProjects
+                ? 'Show Less'
+                : `See More (${PROJECTS.length - 4} more)`}
+              <ArrowUpRightIcon className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            </button>
+          </div>
+        )}
       </motion.section>
 
       <motion.section
@@ -224,6 +210,23 @@ export default function Personal() {
         <div className="flex flex-col space-y-2">
           {EDUCATION.map((education) => (
             <EducationPreview key={education.school} education={education} />
+          ))}
+        </div>
+      </motion.section>
+      {/* Certifications */}
+      <motion.section
+        variants={VARIANTS_SECTION}
+        transition={TRANSITION_SECTION}
+      >
+        <h3 className="mb-5 text-lg font-medium">
+          Certifications & Achievements
+        </h3>
+        <div className="flex flex-col space-y-2">
+          {ACHIEVEMENTS.map((achievement) => (
+            <AchievementPreview
+              key={achievement.title}
+              achievement={achievement}
+            />
           ))}
         </div>
       </motion.section>

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'motion/react'
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
-import { Education, WorkExperience } from '@/app/data'
+import { Achievements, Education, WorkExperience } from '@/app/data'
 
 interface JobExperienceDropdownProps {
   job: WorkExperience
@@ -10,6 +10,9 @@ interface JobExperienceDropdownProps {
 
 interface EducationDropdownProps {
   education: Education
+}
+interface AchievementDropdownProps {
+  achievement: Achievements
 }
 
 export function JobExperienceDropdown({ job }: JobExperienceDropdownProps) {
@@ -62,6 +65,19 @@ export function JobExperienceDropdown({ job }: JobExperienceDropdownProps) {
                 <li key={index}>{detail}</li>
               ))}
             </ul>
+          )}
+
+          {job.skills && job.skills.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2 text-sm text-zinc-600 dark:text-zinc-400">
+              {job.skills.map((skill, index) => (
+                <span
+                  key={index}
+                  className="rounded-xl bg-zinc-100 px-4 py-1 text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
           )}
         </motion.div>
       </div>
@@ -116,8 +132,65 @@ export function EducationPreview({ education }: EducationDropdownProps) {
           <p className="text-zinc-600 dark:text-zinc-400">
             {education.start} - {education.end}
           </p>
+          {education.cgpa && (
+            <p className="text-zinc-600 dark:text-zinc-400">
+              CGPA: {education.cgpa}
+            </p>
+          )}
+          {education.grade && (
+            <p className="text-zinc-600 dark:text-zinc-400">
+              Grade: {education.grade}
+            </p>
+          )}
+        </motion.div>
+      </div>
+    </motion.div>
+  )
+}
+
+export function AchievementPreview({ achievement }: AchievementDropdownProps) {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const toggleOpen = () => setIsOpen(!isOpen)
+  return (
+    <motion.div
+      className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+      initial={false}
+      animate={isOpen ? 'open' : 'closed'}
+    >
+      <Spotlight
+        className="bgr bg-neutral-200 from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+        size={64}
+      />
+      <div className="relative h-full w-full rounded-[15px] bg-white dark:bg-zinc-950">
+        <button
+          onClick={toggleOpen}
+          className="flex w-full cursor-pointer flex-row justify-between p-4 text-left"
+        >
+          <div>
+            <h4 className="font-normal dark:text-zinc-100">
+              {achievement.title}
+            </h4>
+          </div>
+          <div className="flex items-center gap-2">
+            {isOpen ? (
+              <ChevronUpIcon className="h-4 w-4 text-zinc-500" />
+            ) : (
+              <ChevronDownIcon className="h-4 w-4 text-zinc-500" />
+            )}
+          </div>
+        </button>
+
+        <motion.div
+          variants={{
+            open: { height: 'auto', opacity: 1, paddingBottom: '1rem' },
+            closed: { height: 0, opacity: 0, paddingBottom: 0 },
+          }}
+          transition={{ duration: 0.3 }}
+          className="h-full overflow-hidden px-4"
+        >
           <p className="text-zinc-600 dark:text-zinc-400">
-            CGPA: {education.cgpa}
+            {achievement.description}
           </p>
         </motion.div>
       </div>

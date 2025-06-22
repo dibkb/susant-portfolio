@@ -12,8 +12,8 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Dibas K Borborah',
-  description: 'Full Stack Engineer | AI/ML Enthusiast',
+  title: 'Susanta Baidya',
+  description: 'AI/ML Engineer & Innovator',
 }
 
 const geist = Geist({
