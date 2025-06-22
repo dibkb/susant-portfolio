@@ -14,7 +14,7 @@ interface EducationDropdownProps {
 interface AchievementDropdownProps {
   achievement: Achievements
 }
-
+// job
 export function JobExperienceDropdown({ job }: JobExperienceDropdownProps) {
   const [isOpen, setIsOpen] = useState(false)
 
