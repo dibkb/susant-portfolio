@@ -201,7 +201,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     start: 'July 2025',
     end: 'Present',
     link: 'https://www.deepmatrix.ai/',
-    id: 'work1',
+    id: 'work0001',
     details: [
       'Developed optimized pipelines for object detection and defect detection using YOLO, implementing custom algorithms for Adani grading ring object detection that improved detection and inference speed by 35%.',
       'Implemented various detection algorithms for manufacturing defect identification, creating streamlined training workflows that improved accuracy by 28%. and reduced false positives by 45%.',
