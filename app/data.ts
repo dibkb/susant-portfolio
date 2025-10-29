@@ -196,10 +196,23 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    company: 'Solulever',
+    title: 'AI/ML Intern',
+    start: 'July 2025',
+    end: 'Present',
+    link: 'https://www.deepmatrix.ai/',
+    id: 'work1',
+    details: [
+      'Developed optimized pipelines for object detection and defect detection using YOLO, implementing custom algorithms for Adani grading ring object detection that improved detection and inference speed by 35%.',
+      'Implemented various detection algorithms for manufacturing defect identification, creating streamlined training workflows that improved accuracy by 28%. and reduced false positives by 45%.',
+    ],
+    skills: ['Computer Vision', 'YOLO', 'Object Detection', 'Manufacturing AI'],
+  },
+  {
     company: 'DeepMatrix, Bengaluru',
     title: 'AI/ML Intern',
     start: 'April 2025',
-    end: 'Present',
+    end: 'July 2025',
     link: 'https://www.deepmatrix.ai/',
     id: 'work1',
     details: [
@@ -212,7 +225,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     company: 'Climate Resilience Observatory (CRO), UP Government',
     title: 'Data Science Intern',
     start: 'Sep 2024',
-    end: 'May 2025',
+    end: 'March 2025',
     link: 'https://www.cro.gov.in/',
     id: 'work2',
     details: [

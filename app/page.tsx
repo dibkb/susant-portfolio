@@ -145,22 +145,40 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            I am Susanta Baidya, an AI/ML professional currently working as an
-            AI/ML Intern at DeepMatrix, Bengaluru. I hold an MSc in Artificial
-            Intelligence and Machine Learning from IIIT Lucknow (CGPA: 8.20/10)
-            and a BSc in Statistics.
+            I’m a Python Machine Learning Engineer, graduated from IIIT Lucknow
+            with an MSc in Artificial Intelligence and Machine Learning. I
+            specialize in designing and deploying scalable AI systems that
+            combine Generative AI, NLP, Computer Vision, and Agentic AI for
+            real-world applications.
             <br />
             <br />
-            With hands-on experience spanning Computer Vision, Generative AI,
-            and Agentic AI through industry internships, I am passionate about
-            developing cutting-edge AI solutions including LLM-powered
-            applications, autonomous AI agents, and production-ready ML systems.
+            My professional experience includes developing enterprise-grade AI
+            analytics platforms and conversational intelligence systems that
+            leverage LangChain, GPT-4, and multi-tenant architectures to
+            automate workflows, enable natural language data querying, and
+            enhance industrial decision-making through predictive analytics.
             <br />
             <br />
-            My work ranges from YOLO-based object detection systems to
-            sophisticated RAG implementations and natural language to
-            command-line interfaces. I have successfully contributed to systems
-            that improved inference speed by 35% and detection accuracy by 28%.
+            I’ve also worked on impactful projects such as a lightning
+            prediction system, defect detection using YOLOv5, and RAG-based
+            semantic search engines, integrating deep learning models with cloud
+            and data engineering tools for production-ready deployment.
+            <br />
+            <br />
+            With a strong foundation in Python, SQL, PyTorch, TensorFlow,
+            FastAPI, and AWS, I focus on building robust, efficient, and
+            explainable AI solutions that bridge data science and business
+            value.
+            <br />
+            <br />
+            Beyond work, I actively participate in Kaggle competitions,
+            hackathons, and open-source AI projects, continuously exploring how
+            LLMs and autonomous agents can revolutionize automation, analytics,
+            and decision intelligence.
+            <br />
+            <br />
+            💡 Passionate about applying AI to solve data-driven challenges that
+            make a tangible impact.
           </p>
         </div>
       </motion.section>
