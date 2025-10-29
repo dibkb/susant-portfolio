@@ -196,8 +196,8 @@ export const PROJECTS: Project[] = [
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    company: 'Solulever',
-    title: 'AI/ML Intern',
+    company: 'Solulever, Noida',
+    title: 'ML Engineer',
     start: 'July 2025',
     end: 'Present',
     link: 'https://www.deepmatrix.ai/',
